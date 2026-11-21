@@ -1,10 +1,7 @@
-﻿<?php
+<?php
 
 // Laporan error
 error_reporting(E_ALL);
-
-// Mulai sesi
-session_start();
 
 // Url -
 define("URL", "http://localhost/project6");

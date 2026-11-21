@@ -2,12 +2,11 @@
 
 namespace App\Core;
 
-class Error
+class Error extends Controller
 {
-
 	public function fileNotFound()
 	{
-		echo "Ini file app/controllers/Error.php - fileNotFound()";
-		echo "<p>404 - File tidak ditemukan</p>";
+		http_response_code(404);
+		$this->guest('error/404');
 	}
 }

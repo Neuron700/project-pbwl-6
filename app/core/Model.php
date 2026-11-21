@@ -11,13 +11,9 @@ class Model
 
 	public function __construct()
 	{
-
-		try {
-
-			$this->db = new PDO("mysql:host=127.0.0.1;port=3307;dbname=dbproject6;charset=utf8mb4", "root", "", [\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION, \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC]);
-		} catch (\Exception $e) {
-			die("error! " . $e->getMessage());
-		}
+		$this->db = new PDO("mysql:host=127.0.0.1;port=3307;dbname=pbwl_samples_6", "root", "");
+		$this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$this->db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 	}
 
 	public function select($stmt)

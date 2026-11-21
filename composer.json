@@ -1,11 +1,11 @@
 {
-    "name": "suendri-uinsu/project6",
-    "description": "Project 6 Pemrograman Berbasis Web Lanjutan",
+    "name": "suendri/project6",
+    "description": "Project 6 Sistem Akademik Pemrograman Berbasis Web",
     "type": "project",
     "authors": [
         {
-            "name": "suendri-uinsu",
-            "email": "suendri@uinsu.ac.id"
+            "name": "Suendri",
+            "email": "mr.suendri@gmail.com"
         }
     ],
     "autoload": {

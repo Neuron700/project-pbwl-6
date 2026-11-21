@@ -33,7 +33,8 @@ class Bootstrap
                     $params = array_values($url);
                     call_user_func_array([$controller, $action], $params);
                 } else {
-                    $controller->index();
+                    $controller = new \App\Core\Error();
+                    $controller->fileNotFound();
                 }
             } else {
                 // Jika controller tidak ditemukan, tampilkan halaman error
@@ -54,19 +55,15 @@ class Bootstrap
      */
     private function getRequestUri()
     {
-        $uri = $_SERVER['REQUEST_URI'] ?? '/';
-        // Hilangkan query string (misal: ?param=val)
-        $uri = parse_url($uri, PHP_URL_PATH) ?? '/';
+        $uri = $_SERVER['REQUEST_URI'];
+        $uri = parse_url($uri, PHP_URL_PATH);
 
-        // Buang prefix direktori aplikasi (mis. "/project6") agar "/project6/"
-        // tidak dianggap sebagai nama controller.
-        $scriptDir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '/'));
-        $scriptDir = rtrim($scriptDir, '/');
-        if ($scriptDir !== '' && $scriptDir !== '/' && stripos($uri, $scriptDir) === 0) {
-            $uri = substr($uri, strlen($scriptDir));
+        // Hilangkan nama folder project dari URL
+        $basePath = dirname($_SERVER['SCRIPT_NAME']);
+        if ($basePath !== '/' && strpos($uri, $basePath) === 0) {
+            $uri = substr($uri, strlen($basePath));
         }
 
-        // Hilangkan leading dan trailing slash
         return trim($uri, '/');
     }
 }

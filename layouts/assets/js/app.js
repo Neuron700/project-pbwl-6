@@ -1,10 +1,10 @@
-document.addEventListener("DOMContentLoaded", function (event) {
+document.addEventListener('DOMContentLoaded', function () {
+	const wrapper = document.getElementById('wrapper');
+	const buttons = document.querySelectorAll('.menu-toggle');
 
-    const menuToggle = document.getElementById('menu-toggle');
-    const wrapper = document.getElementById('wrapper');
-
-    menuToggle.addEventListener('click', function () {
-        // Menambah atau menghapus class 'toggled' pada wrapper
-        wrapper.classList.toggle('toggled');
-    });
+	buttons.forEach(function (button) {
+		button.addEventListener('click', function () {
+			wrapper.classList.toggle('toggled');
+		});
+	});
 });
