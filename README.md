@@ -10,8 +10,6 @@ Framework **MVC buatan sendiri** untuk Sistem Akademik: router, controller dasar
 
 </div>
 
----
-
 ## 📖 Deskripsi
 
 `.htaccess` mengubah URL menjadi `index.php?page=...`. `App\Core\Bootstrap` memetakan URL ke `Controller@action`, controller memanggil model, lalu view dirender di dalam layout. Tidak ada framework — semua lapisan terlihat jelas.
